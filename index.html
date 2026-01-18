@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZENİX | STORE - Premium Software</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;900&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #f0ad4e; --bg: #0a0a0a; --card: #111; --text: #a0a0a0; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background: var(--bg); color: #fff; scroll-behavior: smooth; overflow-x: hidden; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Navigasyon */
+        nav { padding: 20px 0; background: rgba(10, 10, 10, 0.98); position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid #222; }
+        nav .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 22px; font-weight: 900; text-transform: uppercase; } .logo span { color: var(--primary); }
+        .nav-links { list-style: none; display: flex; gap: 20px; }
+        .nav-links a { text-decoration: none; color: #fff; font-size: 14px; font-weight: 500; transition: 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
+
+        /* Hero */
+        .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: radial-gradient(circle, #1a1a1a 0%, #0a0a0a 100%); }
+        .hero h1 { font-size: 60px; font-weight: 900; margin-bottom: 20px; }
+        .hero p { color: var(--text); font-size: 18px; margin-bottom: 30px; }
+        .btn { background: var(--primary); color: #000; padding: 15px 35px; border-radius: 5px; text-decoration: none; font-weight: bold; transition: 0.3s; display: inline-block; cursor: pointer; border: none; }
+        .btn:hover { box-shadow: 0 0 20px var(--primary); transform: translateY(-3px); }
+
+        /* Seksiyonlar */
+        section { padding: 100px 0; }
+        .title { text-align: center; font-size: 32px; margin-bottom: 50px; text-transform: uppercase; letter-spacing: 2px; }
+        .title span { color: var(--primary); }
+
+        /* Grid Yapıları */
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .card { background: var(--card); padding: 40px; border-radius: 10px; border: 1px solid #222; text-align: center; transition: 0.3s; }
+        .card:hover { border-color: var(--primary); transform: translateY(-5px); }
+        .card i { font-size: 40px; color: var(--primary); margin-bottom: 20px; }
+        .card h3 { margin-bottom: 15px; text-transform: uppercase; }
+        .card p { color: var(--text); font-size: 14px; line-height: 1.6; }
+
+        /* Ürün Kartı */
+        .product-box { display: flex; justify-content: center; }
+        .p-card { background: var(--card); padding: 50px; border-radius: 15px; border: 2px solid var(--primary); width: 100%; max-width: 450px; text-align: center; position: relative; box-shadow: 0 0 30px rgba(240, 173, 78, 0.1); }
+        .p-price { font-size: 40px; font-weight: 900; color: var(--primary); margin: 20px 0; }
+        .p-card ul { list-style: none; text-align: left; margin-bottom: 30px; }
+        .p-card li { margin-bottom: 12px; font-size: 15px; color: #ccc; display: flex; align-items: center; }
+        .p-card li i { color: var(--primary); margin-right: 12px; font-size: 14px; }
+
+        /* Yorumlar Alanı */
+        .comments-scroll { height: 500px; overflow-y: auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 15px; background: #080808; border-radius: 10px; border: 1px solid #1a1a1a; }
+        .comment { background: #111; padding: 20px; border-radius: 8px; border-left: 4px solid var(--primary); }
+        .comment h4 { font-size: 16px; margin-bottom: 5px; color: #fff; }
+        .comment small { color: var(--primary); display: block; margin-bottom: 10px; font-weight: bold; font-size: 11px; }
+        .comment p { font-size: 14px; color: #bbb; font-style: italic; }
+        .comments-scroll::-webkit-scrollbar { width: 5px; }
+        .comments-scroll::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
+
+        /* İletişim & Discord Alanı */
+        .contact-section { background: #0d0d0d; border-top: 1px solid #222; }
+        .contact-box { background: var(--card); padding: 60px; border-radius: 20px; text-align: center; border: 1px dashed #333; }
+        .discord-btn { background: #5865F2; color: #fff; padding: 20px 40px; border-radius: 10px; text-decoration: none; font-size: 24px; font-weight: 900; display: inline-flex; align-items: center; gap: 15px; transition: 0.3s; margin-top: 20px; }
+        .discord-btn:hover { background: #4752c4; transform: scale(1.05); box-shadow: 0 0 30px rgba(88, 101, 242, 0.4); }
+
+        footer { text-align: center; padding: 40px; color: #444; font-size: 12px; border-top: 1px solid #111; }
+
+        @media (max-width: 768px) { .grid-3, .comments-scroll { grid-template-columns: 1fr; } .hero h1 { font-size: 35px; } }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <div class="logo">ZENİX <span>| STORE</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Anasayfa</a></li>
+            <li><a href="#neden-biz">Neden Biz?</a></li>
+            <li><a href="#ozellikler">Özellikler</a></li>
+            <li><a href="#urunler">Ürünler</a></li>
+            <li><a href="#yorumlar">Yorumlar</a></li>
+            <li><a href="#iletisim">İletişim</a></li>
+        </ul>
+    </div>
+</nav>
+
+<header class="hero" id="home">
+    <div class="container">
+        <h4>ZENİX PREMIUM YAZILIMLAR</h4>
+        <h1>Rakiplerinizin bir adım önünde olun.</h1>
+        <p>Özel kodlanmış altyapımız ile güvenli ve kesintisiz oyun deneyimi.</p>
+        <a href="#urunler" class="btn">Ürünleri Keşfet</a>
+    </div>
+</header>
+
+<section id="neden-biz">
+    <div class="container">
+        <h2 class="title">Neden <span>Biz?</span></h2>
+        <div class="grid-3">
+            <div class="card"><i class="fas fa-shield-alt"></i><h3>Tespit Edilemez</h3><p>Gelişmiş anti-detect teknolojimiz ile güvenliğinizi en üst seviyede tutuyoruz. Ban riski minimize edilmiştir.</p></div>
+            <div class="card"><i class="fas fa-history"></i><h3>Hızlı Güncelleme</h3><p>Oyun güncellemelerinden hemen sonra yazılımlarımız otomatik olarak güncellenir.</p></div>
+            <div class="card"><i class="fas fa-headset"></i><h3>7/24 Destek</h3><p>Discord üzerinden teknik ekibimiz tüm sorularınıza anında yanıt verir.</p></div>
+        </div>
+    </div>
+</section>
+
+<section id="ozellikler" style="background: #0d0d0d;">
+    <div class="container">
+        <h2 class="title">Üstün <span>Özelliklerimiz</span></h2>
+        <div class="grid-3">
+            <div class="card"><i class="fas fa-bullseye"></i><h3>Gelişmiş Aimbot</h3><p>Düşmanları kaçırmadan, doğal görünen vuruşlar yapmanızı sağlar.</p></div>
+            <div class="card"><i class="fas fa-vector-square"></i><h3>Visual ESP</h3><p>Oyuncuları duvarların arkasından görün, can ve mesafe bilgilerini okuyun.</p></div>
+            <div class="card"><i class="fas fa-fingerprint"></i><h3>HWID Spoofer</h3><p>Bilgisayarınızın kimliğini gizleyerek ana hesabınızı ve donanımınızı korur.</p></div>
+        </div>
+    </div>
+</section>
+
+<section id="urunler">
+    <div class="container">
+        <h2 class="title">Mağaza <span>Ürünleri</span></h2>
+        <div class="product-box">
+            <div class="p-card">
+                <h3>PUBGM BYPASS</h3>
+                <div class="p-price">₺850<span>/aylık</span></div>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Emülatörü Mobil Gösterir</li>
+                    <li><i class="fas fa-check-circle"></i> Tam ESP & Radar Desteği</li>
+                    <li><i class="fas fa-check-circle"></i> No Recoil / Sekmeme %100</li>
+                    <li><i class="fas fa-check-circle"></i> Gelişmiş Legit Aimbot</li>
+                    <li><i class="fas fa-check-circle"></i> Skin Changer (Ücretsiz Bonus)</li>
+                </ul>
+                <a href="https://discord.gg/CJaa5d9xfx" target="_blank" class="btn" style="width:100%; text-align:center;">ŞİMDİ SATIN AL</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="yorumlar" style="background: #0d0d0d;">
+    <div class="container">
+        <h2 class="title">Müşteri <span>Yorumları</span></h2>
+        <div id="comment-box" class="comments-scroll">
+            </div>
+    </div>
+</section>
+
+<section id="iletisim" class="contact-section">
+    <div class="container">
+        <div class="contact-box">
+            <h2 class="title">BİZE <span>ULAŞIN</span></h2>
+            <p>Her türlü soru, teknik destek veya satın alım işlemleri için Discord sunucumuza davetlisiniz.</p>
+            <a href="https://discord.gg/CJaa5d9xfx" target="_blank" class="discord-btn">
+                <i class="fab fa-discord"></i> DISCORD SUNUCUSUNA KATIL
+            </a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2024 ZENİX STORE - Tüm Hakları Saklıdır. Bu yazılımlar eğitim amaçlıdır.</p>
+</footer>
+
+<script>
+    const isimler = ["Ahmet", "Mehmet", "Mert", "Selin", "Batuhan", "Emre", "Berkay", "Yiğit", "Okan", "Umut", "Enes", "Burak", "Kaan", "Deniz", "Ege", "Fatih", "Serkan", "Volkan", "Gökhan", "Murat"];
+    const yorumHavuzu = [
+        "PUBG Bypass efsane, 2 haftadır Fatih ligine çıktım ban yok.", 
+        "Aimbot ayarları çok legit, kimse anlamıyor.", 
+        "Destek ekibi çok hızlı, gece 3'te bile yardımcı oldular.",
+        "Daha önce başka yerden aldım ban yedim, burası gerçekten güvenli.", 
+        "Sürekli güncel kalması büyük artı. Güncelleme gelince anında duyuru geçiyorlar.", 
+        "Kurulumu çok basitmiş, saniyeler sürdü.",
+        "ESP mesafesi çok iyi çalışıyor, rakipleri her yerden görüyorum.", 
+        "Hile değil resmen sanat yapmışlar, teşekkürler Zenix.", 
+        "No recoil ile M416 lazer gibi gidiyor, hiç titremiyor.", 
+        "Parasının hakkını sonuna kadar veriyor.",
+        "Arkadaşım tavsiye etmişti, iyi ki almışım memnunum.", 
+        "Discord'da herkes çok ilgili ve saygılı.",
+        "Uzun süredir kullanıyorum, şu ana kadar tek bir sorun bile yaşamadım.", 
+        "Hızlı teslimat ve güvenilir hizmet için teşekkürler.",
+        "Bypass özelliği çok başarılı, mobil oyuncularla eşleşmek harika."
+    ];
+
+    const container = document.getElementById('comment-box');
+    for (let i = 1; i <= 50; i++) {
+        const isim = isimler[Math.floor(Math.random() * isimler.length)] + " " + String.fromCharCode(65 + Math.floor(Math.random() * 26)) + ".";
+        const yorum = yorumHavuzu[Math.floor(Math.random() * yorumHavuzu.length)];
+        const ay = Math.floor(Math.random() * 12) + 1;
+        container.innerHTML += `
+            <div class="comment">
+                <h4>${isim}</h4>
+                <small>${ay} AYDIR ÜYE</small>
+                <p>"${yorum}"</p>
+            </div>`;
+    }
+</script>
+
+</body>
+</html>
